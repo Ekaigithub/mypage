@@ -1,90 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progate</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <meta charset="UTF-8">
+  <title>Portfolio - HASHIMOTO Ekai</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- ヘッダー -->
   <header>
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
-      </div>
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">レッスン</a>
-        <a href="#">新規登録</a>
-        <a href="#" class="login">ログイン</a>
-      </div>
-    </div>
+    <h1>橋本　慧海 (HASHIMOTO Ekai)</h1>
+    <p>名古屋工業大学大学院 工学専攻 博士後期課程 白松研究室</p>
   </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
-      <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
-      <div class="btn-wrapper">
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        <p>or</p>
-        <a href="#" class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</a>
-        <a href="#" class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</a>
+
+  <!-- メインコンテンツ -->
+  <main>
+    <!-- ポートフォリオセクション -->
+    <section id="portfolio">
+      <h2>ポートフォリオ</h2>
+      <div class="info">
+        <h3>各種アドレス</h3>
+        <ul>
+          <li><strong>e-mail:</strong> <a href="mailto:e.hashimoto.611@stn.nitech.ac.jp">e.hashimoto.611@stn.nitech.ac.jp</a></li>
+          <li><strong>研究室URL:</strong> 
+            <a href="http://www.srmt.nitech.ac.jp/" target="_blank" rel="noopener">http://www.srmt.nitech.ac.jp/</a>
+          </li>
+          <li><del>就活支援システムURL: https://hsmtapp.ngrok.io/</del></li>
+        </ul>
       </div>
-    </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>Learn Where to Get Started!</h2>
+    </section>
+
+    <!-- 研究業績セクション -->
+    <section id="publications">
+      <h2>研究業績</h2>
+
+      <!-- 2024年度 -->
+      <div class="year-section">
+        <h3>2024年度 (10/11現在)</h3>
+        <ul>
+          <li>
+            「LLMによる仮説形成的スロット生成を用いたキャリア面談対話システム」<br>
+            2024/9 JSAI SIG-SLUD (人工知能学会 言語・音声理解と対話処理研究会)
+          </li>
+          <li>
+            "Discovering Authentic Self: Coaching Agent for Job-Hunting Students"<br>
+            2024/6 HUMAN-COMPUTER INTERACTION @ Washington D.C 
+            <strong>(採択率約30％)</strong>
+          </li>
+          <li>
+            「聴衆反応の類型化 : ビブリオバトルにおける聴衆の反応と投票行動には個人性があるか?」 (ポスター発表)<br>
+            2024/6 音学シンポジウム 2024（第140回MUS・第152回SLP合同研究発表会）
+          </li>
+        </ul>
       </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p>HTML & CSS</p>
-          </div>
-          <p class="text-contents">ウェブページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p>jQuery</p>
-          </div>
-          <p class="text-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p>Ruby</p>
-          </div>
-          <p class="text-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p>PHP</p>
-          </div>
-          <p class="text-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
-        </div>
+
+      <!-- 2023年度 -->
+      <div class="year-section">
+        <h3>2023年度</h3>
+        <ul>
+          <li>
+            <strong>名古屋工業大学副学長表彰（学術部門）</strong><br>
+            2024/3
+          </li>
+          <li>
+            「看護師のキャリア面談のためのLLM を用いたスロット生成型対話システム」<br>
+            2024/2 JSAI SIG-SLUD(人工知能学会 言語・音声理解と対話処理研究会)
+          </li>
+          <li>
+            「GPT-4を用いた就活生の自己分析支援システムの試作」(ポスター発表)<br>
+            2023/12 JSAI SIG-SLUD(人工知能学会 言語・音声理解と対話処理研究会)<br>
+            <strong>若手萌芽賞受賞</strong>
+          </li>
+          <li>
+            「不完全な指示に対する対話型情報補完システムの検討」<br>
+            2023/10 JSAI SIG-CCI(人工知能学会 市民共創知研究会)<br>
+            <strong>ベストプラクティス賞受賞</strong><br>
+            <a href="https://sigcci.github.io/sigcci/conf11/index.html" target="_blank" rel="noopener">https://sigcci.github.io/sigcci/conf11/index.html</a>
+          </li>
+          <li>
+            「GPT-4を用いた就活生の自己分析支援システムの試作」(ポスター発表)<br>
+            2023/09 JSET(日本教育工学会)
+          </li>
+          <li>
+            "Toward Democratic Laboratory: LLM-based Coaching Agent for Promoting Students’ Autonomy"<br>
+            2023/08 IJCAI 併設ワークショップ<br>
+            <strong>Best Student Paper Award受賞</strong><br>
+            <a href="https://sites.google.com/kyoto-u.ac.jp/democrai2023/awards" target="_blank" rel="noopener">
+              https://sites.google.com/kyoto-u.ac.jp/democrai2023/awards
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
-        <h3>Let's learn to code, learn to be creative!</h3>
+
+      <!-- 2022年度 -->
+      <div class="year-section">
+        <h3>2022年度</h3>
+        <ul>
+          <li>
+            「適材適所配置支援システムのための個人の属性タグの収集対話システムの試作」<br>
+            2023/03 JSAI SIG-SLUD(人工知能学会 言語・音声理解と対話処理研究会)
+          </li>
+          <li>
+            「適材適所配置支援システムのための個人の属性タグの収集対話システムの開発」<br>
+            2023/02 名古屋工業大学卒業論文
+          </li>
+          <li>
+            「個人の属性タグのオントロジーを用いた適材適所配置支援システムの設計」<br>
+            2022/08 JSAI SIG-SWO(人工知能学会 セマンティックウェブとオントロジー研究会)
+          </li>
+        </ul>
       </div>
-      <span class="btn message">さっそく開発する</span>
-    </div>
-  </div>
+    </section>
+  </main>
+
+  <!-- フッター（任意で追加） -->
   <footer>
-    <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
-    </div>
+    <p>&copy; 2024 HASHIMOTO Ekai</p>
   </footer>
 </body>
 </html>
