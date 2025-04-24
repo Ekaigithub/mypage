@@ -4,65 +4,68 @@
 <head>
   <meta charset="UTF-8" />
   <title>Portfolio - HASHIMOTO Ekai</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
-  <!-- ヘッダー -->
-  <header>
+  <!-- ヘッダー画像エリア -->
+  <header class="header-image">
     <h1>橋本 慧海 (HASHIMOTO Ekai)</h1>
   </header>
 
+  <!-- ナビゲーションメニュー -->
+  <nav id="menubar">
+    <ul>
+      <li><a href="#profile">プロフィール</a></li>
+      <li><a href="#portfolio">ポートフォリオ</a></li>
+      <li><a href="#research-career">研究経歴</a></li>
+    </ul>
+  </nav>
+
   <!-- メインコンテンツ -->
-  <main>
+  <main id="contents">
     <section id="profile">
-      <h3>プロフィール(Profile)</h3>
+      <div class="profile-header">
+        <img class="profile-face" src="face.png" alt="プロフィール画像">
+        <h2>橋本 慧海 (HASHIMOTO Ekai)</h2>
+      </div>
       <div class="profile-info">
-        <p>名古屋⼯業⼤学SPRINGスカラシップ 研究学⽣ 2025年4月～</p>
-        <p>
-          Nagoya Institute of Technology SPRING Scholarship Awardee, From
-          Apr.2025
-        </p>
-        <p>
-          名古屋工業大学大学院 情報工学専攻 博士後期課程 （指導教員:
-          白松俊）2025年4月～
-        </p>
-        <p>
-          Nagoya Institute of Technology, Graduate School of Engineering,
-          Ph.D. Course, Expected to graduate in Mar.2028
-        </p>
+        <p>名古屋工業大学SPRINGスカラシップ 研究学生 2025年4月～</p>
+        <p>Nagoya Institute of Technology SPRING Scholarship Awardee, From Apr.2025</p>
+        <p>名古屋工業大学大学院 情報工学専攻 博士後期課程（指導教員: 白松俊）2025年4月～</p>
+        <p>Nagoya Institute of Technology, Graduate School of Engineering, Ph.D. Course, Expected to graduate in
+          Mar.2028</p>
         <p>名古屋工業大学大学院 創造工学プログラム 修士課程 2025年3月修了</p>
         <p>名古屋工業大学 創造工学教育課程 情報社会コース 2023年3月卒業</p>
       </div>
+      <!-- カルーセル -->
+      <div class="carousel">
+        <img src="img1.jpg" class="carousel-item active">
+        <img src="img2.jpg" class="carousel-item">
+        <img src="img3.jpg" class="carousel-item">
+        <img src="img4.jpg" class="carousel-item">
+      </div>
+      <!-- 連絡先 -->
       <h3>連絡先（Contacts）</h3>
       <ul>
-        <li>
-          <strong>e-mail：</strong>
-          <a href="mailto:e.hashimoto.611@stn.nitech.ac.jp">e.hashimoto.611@stn.nitech.ac.jp</a>
-        </li>
-        <li>
-          <strong>研究室URL(Lab URL)：</strong>
-          <a href="http://www.srmt.nitech.ac.jp/" target="_blank" rel="noopener">http://www.srmt.nitech.ac.jp/</a>
-        </li>
+        <li><strong>e-mail：</strong> <a
+            href="mailto:e.hashimoto.611@stn.nitech.ac.jp">e.hashimoto.611@stn.nitech.ac.jp</a></li>
+        <li><strong>研究室URL：</strong> <a href="http://www.srmt.nitech.ac.jp/"
+            target="_blank">http://www.srmt.nitech.ac.jp/</a></li>
       </ul>
     </section>
 
-    <!-- セクション -->
     <section id="portfolio">
-      <div class="info">
-        <h3>作成システムへのアドレス</h3>
-        <ul>
-          <li>
-            <strong>看護師面談支援システム（博士課程でのメイン研究）：</strong>
-            <a href="https://dialog.test-srmt.com/" target="_blank" rel="noopener">https://dialog.test-srmt.com/</a>
-          </li>
+      <h2>作成システムへのアドレス</h2>
+      <ul>
+        <li><strong>看護師面談支援システム：</strong><a href="https://dialog.test-srmt.com/"
+            target="_blank">https://dialog.test-srmt.com/</a></li>
+        <li><strong>就活支援システム：</strong><del>https://hsmtapp.ngrok.io/</del></li>
+      </ul>
+    </section>
 
-          <li>
-            <strong>就活支援システムURL（修士1年時に作成したシステム）：</strong>
-            <del>https://hsmtapp.ngrok.io/</del>
-          </li>
-        </ul>
-      </div>
+    <section id="research-career">
       <div class="research-career">
         <h2>研究経歴</h2>
         <!-- 受賞セクション -->
@@ -224,9 +227,28 @@
       </div>
     </section>
   </main>
+
+  <!-- ページトップへ戻る -->
+  <div class="scroll">
+    <a href="#top">↑</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 HASHIMOTO Ekai</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="scroll.js"></script>
+  <script>
+    $(function () {
+      setInterval(function () {
+        let active = $('.carousel-item.active');
+        let next = active.next('.carousel-item').length ? active.next('.carousel-item') : $('.carousel-item').first();
+        active.fadeOut(500).removeClass('active');
+        next.fadeIn(500).addClass('active');
+      }, 4000);
+    });
+  </script>
 </body>
-<footer>
-  <p>&copy; 2024 HASHIMOTO Ekai</p>
-</footer>
 
 </html>

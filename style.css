@@ -471,3 +471,62 @@ ol {
 .big1 {font-size: 22px;letter-spacing: normal;}
 
 }
+
+
+.header-image {
+	width: 100%;
+	height: 400px;
+	background: url('header.jpg') no-repeat center center/cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 2rem;
+  }
+  
+  #menubar {
+	position: sticky;
+	top: 0;
+	background: #f8c68b;
+	z-index: 100;
+  }
+  
+  #menubar ul {
+	padding: 10px 0;
+  }
+  
+  .profile-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 30px;
+  }
+  
+  .profile-face {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	margin-right: 20px;
+	object-fit: cover;
+  }
+  
+  .carousel {
+	width: 80%;
+	margin: 20px auto;
+	position: relative;
+	overflow: hidden;
+	height: 300px;
+  }
+  
+  .carousel-item {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+  
+  .carousel-item.active {
+	display: block;
+  }
+  
