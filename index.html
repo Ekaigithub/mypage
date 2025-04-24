@@ -6,6 +6,74 @@
   <title>Portfolio - HASHIMOTO Ekai</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- 青系テーマ用の上書きスタイル -->
+  <style>
+    :root {
+      --accent: #1e73e8;
+      /* メインの青 */
+      --accent-light: #d0e8ff;
+      /* 明るい青 */
+      --accent-dark: #0050a9;
+      /* 濃い青（ホバーなど）*/
+      --text: #003050;
+      /* 全体の文字色 */
+    }
+
+    /* ベースカラー */
+    body {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+    }
+
+    /* ヘッダー・フッター・メニュー */
+    .header-image,
+    #menubar,
+    footer {
+      background: var(--accent);
+    }
+
+    /* h2 見出しの背景色を青系に */
+    #contents h2 {
+      background: var(--accent);
+    }
+
+    /* h3 見出しの枠線を青系にし、テキストも青に */
+    #contents h3 {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+
+    /* リストや区切り線を青系に */
+    .list,
+    .list:first-of-type,
+    .cp_hr08,
+    .reward,
+    .ta1 caption,
+    .ta1 th.tamidashi,
+    .ta1 th {
+      border-color: var(--accent);
+    }
+
+    .reward {
+      border: 4px solid var(--accent);
+    }
+
+    /* PAGE TOP ボタン */
+    .scroll a {
+      background: rgba(0, 116, 217, 0.4);
+    }
+
+    .scroll a:hover {
+      background: rgba(0, 116, 217, 0.8);
+    }
+  </style>
 </head>
 
 <body>
@@ -32,19 +100,12 @@
       </div>
       <div class="profile-info">
         <p>名古屋工業大学SPRINGスカラシップ 研究学生 2025年4月～</p>
-        <p>Nagoya Institute of Technology SPRING Scholarship Awardee, From Apr.2025</p>
+        <p> Nagoya Institute of Technology SPRING Scholarship Awardee, From Apr.2025</p>
         <p>名古屋工業大学大学院 情報工学専攻 博士後期課程（指導教員: 白松俊）2025年4月～</p>
-        <p>Nagoya Institute of Technology, Graduate School of Engineering, Ph.D. Course, Expected to graduate in
+        <p> Nagoya Institute of Technology, Graduate School of Engineering, Ph.D. Course, Expected to graduate in
           Mar.2028</p>
         <p>名古屋工業大学大学院 創造工学プログラム 修士課程 2025年3月修了</p>
         <p>名古屋工業大学 創造工学教育課程 情報社会コース 2023年3月卒業</p>
-      </div>
-      <!-- カルーセル -->
-      <div class="carousel">
-        <img src="img1.jpg" class="carousel-item active">
-        <img src="img2.jpg" class="carousel-item">
-        <img src="img3.jpg" class="carousel-item">
-        <img src="img4.jpg" class="carousel-item">
       </div>
       <!-- 連絡先 -->
       <h3>連絡先（Contacts）</h3>
@@ -124,37 +185,32 @@
             <ul>
               <li>
                 「LLMによる動的スロット生成を用いたキャリア面談対話システム」<br />
-                2025/02 名古屋工業大学修士論文
+                (2025/02：名古屋工業大学修士論文)
               </li>
               <li>
                 「LLMによる仮説形成的スロット生成を用いたキャリア面談対話システム」<br />
-                2024/9 JSAI SIG-SLUD (人工知能学会
-                言語・音声理解と対話処理研究会)
+                (2024/9：人工知能学会 第101回 言語・音声理解と対話処理研究会)
               </li>
               <li>
                 「看護師のキャリア面談のためのLLM
                 を用いたスロット生成型対話システム」<br />
-                2024/2 JSAI SIG-SLUD(人工知能学会
-                言語・音声理解と対話処理研究会)
+                (2024/2：人工知能学会 第100回 言語・音声理解と対話処理研究会)
               </li>
               <li>
                 「GPT-4を用いた就活生の自己分析支援システムの試作」(ポスター発表)<br />
-                2023/12 JSAI SIG-SLUD(人工知能学会
-                言語・音声理解と対話処理研究会)<br />
-                <strong>若手萌芽賞受賞</strong>
+                (2023/12：人工知能学会 第99回 言語・音声理解と対話処理研究会)<strong>若手萌芽賞受賞</strong>
               </li>
               <li>
                 「GPT-4を用いた就活生の自己分析支援システムの試作」(ポスター発表)<br />
-                2023/09 JSET(日本教育工学会)
+                (2023/09：日本教育工学会)
               </li>
               <li>
                 「適材適所配置支援システムのための個人の属性タグの収集対話システムの試作」<br />
-                2023/03 JSAI SIG-SLUD(人工知能学会
-                言語・音声理解と対話処理研究会)
+                (2023/03：人工知能学会 第98回 言語・音声理解と対話処理研究会)
               </li>
               <li>
                 「適材適所配置支援システムのための個人の属性タグの収集対話システムの開発」<br />
-                2023/02 名古屋工業大学卒業論文
+                (2023/02 名古屋工業大学卒業論文)
               </li>
             </ul>
           </div>
@@ -163,20 +219,17 @@
             <ul>
               <li>
                 「聴衆反応の類型化 :
-                ビブリオバトルにおける聴衆の反応と投票行動には個人性があるか?」
-                (ポスター発表)<br />
-                2024/6 音学シンポジウム
-                2024（第140回MUS・第152回SLP合同研究発表会）
+                ビブリオバトルにおける聴衆の反応と投票行動には個人性があるか?」(ポスター発表)<br />
+                (2024/6：音学シンポジウム
+                2024（第140回MUS・第152回SLP合同研究発表会）)
               </li>
               <li>
                 「不完全な指示に対する対話型情報補完システムの検討」<br />
-                2023/10 JSAI SIG-CCI(人工知能学会 市民共創知研究会)<br />
-                <strong>ベストプラクティス賞受賞</strong><br />
+                (2023/10：人工知能学会 市民共創知研究会)<strong>ベストプラクティス賞受賞</strong><br />
               </li>
               <li>
                 「個人の属性タグのオントロジーを用いた適材適所配置支援システムの設計」<br />
-                2022/08 JSAI SIG-SWO(人工知能学会
-                セマンティックウェブとオントロジー研究会)
+                (2022/08：人工知能学会 セマンティックウェブとオントロジー研究会)
               </li>
             </ul>
           </div>
@@ -226,6 +279,14 @@
         </section>
       </div>
     </section>
+
+    <!-- カルーセル -->
+    <div class="carousel">
+      <img src="img1.jpg" class="carousel-item active">
+      <img src="img2.jpg" class="carousel-item">
+      <img src="img3.jpg" class="carousel-item">
+      <img src="img4.jpg" class="carousel-item">
+    </div>
   </main>
 
   <!-- ページトップへ戻る -->
