@@ -5,6 +5,8 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="橋本慧海（HASHIMOTO Ekai）のホームページ。名古屋工業大学大学院で対話システムの研究を行っています。" />
   <title>Portfolio - HASHIMOTO Ekai</title>
   <link rel="stylesheet" href="./style.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -122,21 +124,19 @@
         <h2>橋本 慧海 (HASHIMOTO Ekai)</h2>
       </div>
       <div class="profile-info">
+        <p>名古屋工業大学大学院 情報工学専攻 博士後期課程（指導教員：白松俊 教授・長澤史記 助教）2025年4月～</p>
+        <p> Nagoya Institute of Technology, Graduate School of Engineering, Ph.D. Course, Expected to graduate in Mar.2028</p>
         <p>名古屋工業大学SPRINGスカラシップ 研究学生 2025年4月～</p>
         <p> Nagoya Institute of Technology SPRING Scholarship Awardee, From Apr.2025</p>
-        <p>名古屋工業大学大学院 情報工学専攻 博士後期課程（指導教員：白松俊 教授・長澤史記 助教）2025年4月～</p>
-        <p> Nagoya Institute of Technology, Graduate School of Engineering, Ph.D. Course, Expected to graduate in
-          Mar.2028</p>
         <p>名古屋工業大学大学院 創造工学プログラム 修士課程（指導教員：白松俊 教授） 2025年3月修了</p>
-        <p>ハイラブル株式会社にて研究インターン 2023年6月~10月</p>
-        <p>ハイラブル株式会社にて研究アルバイト 2023年4月~（継続中）</p>
+        <p>ハイラブル株式会社にて集中研究インターン 2023年6月~10月</p>
+        <p>ハイラブル株式会社にて研究インターン 2023年4月~（継続中）</p>
         <p>名古屋工業大学 創造工学教育課程 情報社会コース 2023年3月卒業</p>
       </div>
       <!-- 連絡先 -->
       <h3>連絡先（Contacts）</h3>
       <ul>
-        <li><strong>e-mail：</strong> <a
-            href="mailto:e.hashimoto.611@stn.nitech.ac.jp">e.hashimoto.611@stn.nitech.ac.jp</a></li>
+        <li><strong>e-mail：</strong> <a id="email-link" href="#"></a></li>
         <li><strong>研究室URL：</strong> <a href="http://www.srmt.nitech.ac.jp/"
             target="_blank">http://www.srmt.nitech.ac.jp/</a></li>
       </ul>
@@ -155,17 +155,27 @@
       <div class="research-career">
         <h2>研究経歴</h2>
 
-        {% include achievements.html %}
+        {% include '_includes/achievements.html' %}
 
       </div>
     </section>
 
     <!-- カルーセル -->
-    <div class="carousel">
-      <img src="./images/img1.jpg" class="carousel-item active">
-      <img src="./images/img2.jpg" class="carousel-item">
-      <img src="./images/img3.jpg" class="carousel-item">
-      <img src="./images/img4.jpg" class="carousel-item">
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="./images/img1.jpg" class="carousel-item active" alt="画像1">
+        <img src="./images/img2.jpg" class="carousel-item" alt="画像2">
+        <img src="./images/img3.jpg" class="carousel-item" alt="画像3">
+        <img src="./images/img4.jpg" class="carousel-item" alt="画像4">
+      </div>
+      <button class="carousel-btn carousel-btn-prev" aria-label="前の画像">‹</button>
+      <button class="carousel-btn carousel-btn-next" aria-label="次の画像">›</button>
+      <div class="carousel-indicators">
+        <span class="indicator active" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
+        <span class="indicator" data-slide="3"></span>
+      </div>
     </div>
   </main>
 
@@ -181,13 +191,73 @@
   <!-- JavaScript -->
   <script src="scroll.js"></script>
   <script>
+    // メールアドレスを動的に生成（スクレイピング対策）
+    (function() {
+      const emailParts = ['e.hashimoto.611', '@', 'stn.nitech.ac.jp'];
+      const email = emailParts.join('');
+      const emailLink = document.getElementById('email-link');
+      if (emailLink) {
+        emailLink.href = 'mailto:' + email;
+        emailLink.textContent = email;
+      }
+    })();
+
+    // カルーセル機能
     $(function () {
-      setInterval(function () {
-        let active = $('.carousel-item.active');
-        let next = active.next('.carousel-item').length ? active.next('.carousel-item') : $('.carousel-item').first();
-        active.fadeOut(500).removeClass('active');
-        next.fadeIn(500).addClass('active');
-      }, 4000);
+      let currentSlide = 0;
+      const totalSlides = $('.carousel-item').length;
+      let autoSlideInterval;
+
+      function showSlide(index) {
+        $('.carousel-item').removeClass('active').eq(index).addClass('active');
+        $('.indicator').removeClass('active').eq(index).addClass('active');
+        currentSlide = index;
+      }
+
+      function nextSlide() {
+        const next = (currentSlide + 1) % totalSlides;
+        showSlide(next);
+      }
+
+      function prevSlide() {
+        const prev = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(prev);
+      }
+
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+      }
+
+      // ナビゲーションボタン
+      $('.carousel-btn-next').click(function() {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+      });
+
+      $('.carousel-btn-prev').click(function() {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
+      });
+
+      // インジケーター
+      $('.indicator').click(function() {
+        stopAutoSlide();
+        const slideIndex = $(this).data('slide');
+        showSlide(slideIndex);
+        startAutoSlide();
+      });
+
+      // 自動スライド開始
+      startAutoSlide();
+
+      // マウスホバーで自動スライド停止
+      $('.carousel-container').hover(stopAutoSlide, startAutoSlide);
     });
   </script>
 </body>

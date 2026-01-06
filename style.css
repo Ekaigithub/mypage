@@ -124,6 +124,8 @@ header #logo img {
 #contents {
 	overflow: hidden;
 	padding: 80px 3%;
+	max-width: 1000px;	/* コンテンツの最大幅を制限（細く） */
+	margin: 0 auto;		/* 中央揃え */
 }
 #contents section + section {
 	padding-top: 50px;
@@ -298,6 +300,28 @@ footer .pr {
 .ta1 th {
 	text-align: center;	/*センタリング*/
 	width: 30%;			/*幅*/
+}
+
+/* テーブルの列幅調整（発表年月、会議・種別、タイトル、備考） */
+.ta1 th:first-child,
+.ta1 td:first-child {
+	width: 10%;			/* 発表年月：狭く */
+	white-space: nowrap;	/* 改行を防ぐ */
+}
+
+.ta1 th:nth-child(2),
+.ta1 td:nth-child(2) {
+	width: 25%;			/* 会議・種別 */
+}
+
+.ta1 th:nth-child(3),
+.ta1 td:nth-child(3) {
+	width: 50%;			/* タイトル：広く */
+}
+
+.ta1 th:nth-child(4),
+.ta1 td:nth-child(4) {
+	width: 15%;			/* 備考 */
 }
 
 /*PAGE TOP（↑）設定
@@ -510,14 +534,20 @@ ol {
 	object-fit: cover;
   }
   
-  .carousel {
+  .carousel-container {
+	position: relative;
 	width: 80%;
+	max-width: 600px;
 	margin: 20px auto;
+  }
+  
+  .carousel {
+	width: 100%;
 	position: relative;
 	overflow: hidden;
 	height: 400px;
-	width: 300px;
-	
+	border-radius: 10px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
   
   .carousel-item {
@@ -526,9 +556,346 @@ ol {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	top: 0;
+	left: 0;
   }
   
   .carousel-item.active {
 	display: block;
   }
+
+  /* カルーセルナビゲーションボタン */
+  .carousel-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.8);
+	border: none;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	font-size: 24px;
+	cursor: pointer;
+	z-index: 10;
+	transition: all 0.3s ease;
+	color: var(--accent);
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+
+  .carousel-btn:hover {
+	background: rgba(255, 255, 255, 1);
+	transform: translateY(-50%) scale(1.1);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel-btn-prev {
+	left: 10px;
+  }
+
+  .carousel-btn-next {
+	right: 10px;
+  }
+
+  /* カルーセルインジケーター */
+  .carousel-indicators {
+	position: absolute;
+	bottom: 15px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 10px;
+	z-index: 10;
+  }
+
+  .indicator {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .indicator.active {
+	background: var(--accent);
+	border-color: var(--accent);
+	transform: scale(1.2);
+  }
+
+  .indicator:hover {
+	background: rgba(255, 255, 255, 0.8);
+	transform: scale(1.1);
+  }
+
+/* レスポンシブデザインの改善 */
+@media screen and (max-width: 800px) {
+	.profile-header {
+		flex-direction: column;
+		text-align: center;
+	}
+	
+	.profile-face {
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+	
+	.carousel-container {
+		width: 90%;
+	}
+	
+	.carousel {
+		height: 300px;
+	}
+	
+	.carousel-btn {
+		width: 35px;
+		height: 35px;
+		font-size: 20px;
+	}
+	
+	#contents h2 {
+		padding: 0 30px;
+		font-size: 18px;
+	}
+	
+	#contents h3 {
+		padding: 0 30px;
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.header-image {
+		height: 300px;
+		font-size: 1.5rem;
+	}
+	
+	.profile-face {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.carousel-container {
+		width: 95%;
+	}
+	
+	.carousel {
+		height: 250px;
+	}
+	
+	.carousel-btn {
+		width: 30px;
+		height: 30px;
+		font-size: 18px;
+	}
+	
+	.indicator {
+		width: 10px;
+		height: 10px;
+	}
+	
+	#menubar li {
+		display: block;
+		margin: 5px 0;
+	}
+	
+	#menubar li a {
+		width: 100%;
+	}
+}
+
+/* スムーズスクロール */
+html {
+	scroll-behavior: smooth;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#contents section {
+	animation: fadeInUp 0.6s ease-out;
+}
+
+/* カードデザインとシャドウ効果 */
+.profile-info {
+	background: #f9f9f9;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+}
+
+#contents section {
+	background: #fff;
+	padding: 30px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 連絡先リストのスタイリング改善 */
+#profile ul {
+	list-style: none;
+	padding: 0;
+}
+
+#profile ul li {
+	padding: 12px 20px;
+	margin-bottom: 10px;
+	background: #f0f7ff;
+	border-left: 4px solid var(--accent);
+	border-radius: 5px;
+	transition: all 0.3s ease;
+}
+
+#profile ul li:hover {
+	background: #e0efff;
+	transform: translateX(5px);
+	box-shadow: 0 2px 8px rgba(30, 115, 232, 0.2);
+}
+
+#profile ul li strong {
+	color: var(--accent);
+	margin-right: 10px;
+}
+
+/* カルーセルの改善 */
+.carousel {
+	border-radius: 10px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+}
+
+.carousel-item {
+	border-radius: 10px;
+}
+
+/* ポートフォリオセクションの改善 */
+#portfolio ul li {
+	padding: 15px;
+	margin-bottom: 15px;
+	background: #f9f9f9;
+	border-radius: 8px;
+	border-left: 4px solid var(--accent);
+	transition: all 0.3s ease;
+}
+
+#portfolio ul li:hover {
+	background: #f0f7ff;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* テーブルの改善 */
+.ta1 {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.ta1 tr:hover {
+	background: #f0f7ff;
+	transition: background 0.2s ease;
+}
+
+/* セクション間のスペーシング改善 */
+#contents section + section {
+	margin-top: 50px;
+}
+
+/* プロフィール情報の段落スタイリング */
+.profile-info p {
+	margin-bottom: 12px;
+	line-height: 1.8;
+	padding: 0;
+}
+
+.profile-info p:last-child {
+	margin-bottom: 0;
+}
+
+/* ナビゲーションメニューの改善 */
+#menubar {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#menubar li a {
+	transition: all 0.3s ease;
+	border-radius: 5px;
+	padding: 10px 15px;
+}
+
+#menubar li a:hover {
+	background: rgba(255, 255, 255, 0.2);
+	transform: translateY(-2px);
+}
+
+/* フッターの改善 */
+footer {
+	padding: 20px;
+	margin-top: 50px;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* アクセシビリティ改善 */
+*:focus {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+/* 読み込みアニメーション */
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.profile-header {
+	animation: slideIn 0.6s ease-out;
+}
+
+.profile-info {
+	animation: slideIn 0.8s ease-out;
+}
+
+/* テキスト選択の改善 */
+::selection {
+	background: var(--accent-light);
+	color: var(--text);
+}
+
+/* スクロールバーのスタイリング（Webkitブラウザ） */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--accent);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--accent-dark);
+}
   
