@@ -10,101 +10,18 @@
   <title>Portfolio - HASHIMOTO Ekai</title>
   <link rel="stylesheet" href="./style.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- 青系テーマ用の上書きスタイル -->
-  <style>
-    .ta1 {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .ta1 th,
-    .ta1 td {
-      border: 1px solid var(--accent);
-      padding: 0.5em;
-      text-align: left;
-    }
-
-    .ta1 th {
-      background: var(--accent-light);
-      color: var(--text);
-    }
-
-    .ta1 tr:nth-child(even) {
-      background: #f9f9f9;
-    }
-
-    :root {
-      --accent: #1e73e8;
-      /* メインの青 */
-      --accent-light: #d0e8ff;
-      /* 明るい青 */
-      --accent-dark: #0050a9;
-      /* 濃い青（ホバーなど）*/
-      --text: #003050;
-      /* 全体の文字色 */
-    }
-
-    /* ベースカラー */
-    body {
-      color: var(--text);
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    a:hover {
-      color: var(--accent-dark);
-    }
-
-    /* ヘッダー・フッター・メニュー */
-    #menubar,
-    footer {
-      background: var(--accent);
-    }
-
-    /* h2 見出しの背景色を青系に */
-    #contents h2 {
-      background: var(--accent);
-    }
-
-    /* h3 見出しの枠線を青系にし、テキストも青に */
-    #contents h3 {
-      border: 2px solid var(--accent);
-      color: var(--accent);
-    }
-
-    /* リストや区切り線を青系に */
-    .list,
-    .list:first-of-type,
-    .cp_hr08,
-    .reward,
-    .ta1 caption,
-    .ta1 th.tamidashi,
-    .ta1 th {
-      border-color: var(--accent);
-    }
-
-    .reward {
-      border: 4px solid var(--accent);
-    }
-
-    /* PAGE TOP ボタン */
-    .scroll a {
-      background: rgba(0, 116, 217, 0.4);
-    }
-
-    .scroll a:hover {
-      background: rgba(0, 116, 217, 0.8);
-    }
-  </style>
 </head>
 
-<body>
+<body id="top">
   <!-- ヘッダー画像エリア -->
-  <header class="header-image" style="color: black;">
-    <h1>橋本 慧海のホームページ<br>
-      (Ekai Hashimoto's Home Page)</h1>
+  <header class="header-image">
+    <div class="hero-copy">
+      <p class="hero-kicker">Ph.D. Student at Nagoya Institute of Technology</p>
+      <h1>橋本 慧海<br>
+        <span>HASHIMOTO Ekai</span>
+      </h1>
+      <!-- <p class="hero-lead">名古屋工業大学大学院で対話システムの研究に取り組んでいます。</p> -->
+    </div>
   </header>
 
   <!-- ナビゲーションメニュー -->
@@ -124,14 +41,55 @@
         <h2>橋本 慧海 (HASHIMOTO Ekai)</h2>
       </div>
       <div class="profile-info">
-        <p>名古屋工業大学大学院 情報工学専攻 博士後期課程（指導教員：白松俊 教授・長澤史記 助教）2025年4月～</p>
-        <p> Nagoya Institute of Technology, Graduate School of Engineering, Ph.D. Course, Expected to graduate in Mar.2028</p>
-        <p>名古屋工業大学SPRINGスカラシップ 研究学生 2025年4月～</p>
-        <p> Nagoya Institute of Technology SPRING Scholarship Awardee, From Apr.2025</p>
-        <p>名古屋工業大学大学院 創造工学プログラム 修士課程（指導教員：白松俊 教授） 2025年3月修了</p>
-        <p>ハイラブル株式会社にて集中研究インターン 2023年6月~10月</p>
-        <p>ハイラブル株式会社にて研究インターン 2023年4月~（継続中）</p>
-        <p>名古屋工業大学 創造工学教育課程 情報社会コース 2023年3月卒業</p>
+        <div class="profile-group">
+          <h3>経歴</h3>
+          <dl class="profile-timeline">
+            <div class="profile-item">
+              <dt>2025.04 -</dt>
+              <dd>
+                名古屋工業大学大学院 情報工学専攻 博士後期課程
+                <span>Graduate School of Engineering, Nagoya Institute of Technology / Ph.D. Course</span>
+              </dd>
+            </div>
+            <div class="profile-item">
+              <dt>2025.04 -</dt>
+              <dd>
+                名古屋工業大学SPRINGスカラシップ 研究学生
+                <span>Nagoya Institute of Technology SPRING Scholarship Awardee</span>
+              </dd>
+            </div>
+            <div class="profile-item">
+              <dt>2025.03</dt>
+              <dd>名古屋工業大学大学院 創造工学プログラム 修士課程 修了</dd>
+            </div>
+            <div class="profile-item">
+              <dt>2023.06 - 2023.10</dt>
+              <dd>ハイラブル株式会社 集中研究インターン</dd>
+            </div>
+            <div class="profile-item">
+              <dt>2023.04 -</dt>
+              <dd>ハイラブル株式会社 研究インターン</dd>
+            </div>
+            <div class="profile-item">
+              <dt>2023.03</dt>
+              <dd>名古屋工業大学 創造工学教育課程 情報社会コース 卒業</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="profile-group">
+          <h3>その他活動</h3>
+          <dl class="profile-timeline">
+            <div class="profile-item">
+              <dt>2019.04 - 2023.11</dt>
+              <dd>名古屋工業大学ヨット部</dd>
+            </div>
+            <div class="profile-item">
+              <dt>2021.03</dt>
+              <dd>名古屋工業大学副学長表彰（課外活動部門）</dd>
+            </div>
+          </dl>
+        </div>
       </div>
       <!-- 連絡先 -->
       <h3>連絡先（Contacts）</h3>
@@ -146,17 +104,16 @@
       <h2>作成システムへのアドレス</h2>
       <ul>
         <li><strong>看護師面談支援システム：</strong><del><a href="https://dialog.test-srmt.com/"
-            target="_blank">https://dialog.test-srmt.com/</a></del></li>
-        <li><strong>就活支援システム：</strong><del>https://hsmtapp.ngrok.io/</del></li>
+              target="_blank">https://dialog.test-srmt.com/</a></del></li>
+        <li><strong>就活支援システム：</strong><del><a href="https://hsmtapp.ngrok.io/"
+              target="_blank">https://hsmtapp.ngrok.io/</a></del></li>
       </ul>
     </section>
 
     <section id="research-career">
       <div class="research-career">
         <h2>研究経歴</h2>
-
-        {% include achievements.html %}
-
+        {% include "achievements.html" %}
       </div>
     </section>
 
@@ -168,8 +125,8 @@
         <img src="./images/img3.jpg" class="carousel-item" alt="画像3">
         <img src="./images/img4.jpg" class="carousel-item" alt="画像4">
       </div>
-      <button class="carousel-btn carousel-btn-prev" aria-label="前の画像">‹</button>
-      <button class="carousel-btn carousel-btn-next" aria-label="次の画像">›</button>
+      <button class="carousel-btn carousel-btn-prev" aria-label="前の画像">&lsaquo;</button>
+      <button class="carousel-btn carousel-btn-next" aria-label="次の画像">&rsaquo;</button>
       <div class="carousel-indicators">
         <span class="indicator active" data-slide="0"></span>
         <span class="indicator" data-slide="1"></span>
@@ -181,7 +138,7 @@
 
   <!-- ページトップへ戻る -->
   <div class="scroll">
-    <a href="#top">↑</a>
+    <a href="#top" aria-label="ページ上部へ戻る">↑</a>
   </div>
 
   <footer>
@@ -192,8 +149,8 @@
   <script src="scroll.js"></script>
   <script>
     // メールアドレスを動的に生成（スクレイピング対策）
-    (function() {
-      const emailParts = ['e.hashimoto.611', '@', 'stn.nitech.ac.jp'];
+    (function () {
+      const emailParts = ['e.hashimoto.611', '[at]', 'stn.nitech.ac.jp'];
       const email = emailParts.join('');
       const emailLink = document.getElementById('email-link');
       if (emailLink) {
@@ -233,20 +190,20 @@
       }
 
       // ナビゲーションボタン
-      $('.carousel-btn-next').click(function() {
+      $('.carousel-btn-next').click(function () {
         stopAutoSlide();
         nextSlide();
         startAutoSlide();
       });
 
-      $('.carousel-btn-prev').click(function() {
+      $('.carousel-btn-prev').click(function () {
         stopAutoSlide();
         prevSlide();
         startAutoSlide();
       });
 
       // インジケーター
-      $('.indicator').click(function() {
+      $('.indicator').click(function () {
         stopAutoSlide();
         const slideIndex = $(this).data('slide');
         showSlide(slideIndex);

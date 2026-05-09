@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template_string
 import os
 from jinja2 import FileSystemLoader, ChoiceLoader
 
@@ -15,7 +15,14 @@ jinja_env.loader = ChoiceLoader([
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    with open(os.path.join(template_dir, "index.html"), encoding="utf-8") as f:
+        template = f.read()
+    template = template.replace(
+        "{% include achievements.html %}", "{% include 'achievements.html' %}"
+    )
+    if template.startswith("---"):
+        template = template.split("---", 2)[-1]
+    return render_template_string(template)
 
 if __name__ == "__main__":
     app.run(debug=True)
