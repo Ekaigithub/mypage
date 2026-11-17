@@ -82,7 +82,7 @@ del {
 }
 
 ::selection {
-  background: var(--accent);
+  background: #0066cc;
   color: #fff;
 }
 
